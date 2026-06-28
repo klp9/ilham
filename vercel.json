@@ -9,8 +9,5 @@
       "src": "/(.*)",
       "dest": "/api/index.php"
     }
-  ],
-  "env": {
-    "CI_ENVIRONMENT": "production"
-  }
+  ]
 }
