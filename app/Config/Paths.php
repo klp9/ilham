@@ -53,7 +53,14 @@ class Paths
      * for maximum security, keeping it out of the app and/or
      * system directories.
      */
-    public string $writableDirectory = isset($_ENV['VERCEL']) ? '/tmp' : __DIR__ . '/../../writable';
+    public string $writableDirectory = __DIR__ . '/../../writable';
+
+    public function __construct()
+    {
+        if (isset($_ENV['VERCEL']) || isset($_SERVER['VERCEL'])) {
+            $this->writableDirectory = '/tmp';
+        }
+    }
 
     /**
      * ---------------------------------------------------------------
